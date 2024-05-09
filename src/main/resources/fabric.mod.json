@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "immersive-adventure-elements",
+	"id": "immersive-aelements",
 	"version": "${version}",
 	"name": "Immersive Adventure Elements",
 	"description": "This is an example description! Tell everyone what your mod is about!",
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/immersive-adventure-elements/icon.png",
+	"icon": "assets/immersive-aelements/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -23,9 +23,9 @@
 		]
 	},
 	"mixins": [
-		"immersive-adventure-elements.mixins.json",
+		"immersive-aelements.mixins.json",
 		{
-			"config": "immersive-adventure-elements.client.mixins.json",
+			"config": "immersive-aelements.client.mixins.json",
 			"environment": "client"
 		}
 	],

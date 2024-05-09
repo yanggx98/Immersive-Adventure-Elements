@@ -1,0 +1,10 @@
+{
+  "immersive-aelements.display.name":"沉浸式：冒险元素",
+
+  "immersive-aelements.attribute.name.generic.spell_damage": "法术伤害",
+  "immersive-aelements.attribute.name.generic.max_mana": "最大法力值",
+  "immersive-aelements.attribute.name.generic.spell_cast_speed": "施法速度",
+
+
+  "item.immersive-aelements.basic_staff":"基础法杖"
+}

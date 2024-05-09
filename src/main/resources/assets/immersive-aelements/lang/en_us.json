@@ -1,0 +1,10 @@
+{
+  "immersive-aelements.display.name":"Immersive:Adventure Elements",
+
+  "immersive-aelements.attribute.name.generic.spell_damage": "Spell Damage",
+  "immersive-aelements.attribute.name.generic.max_mana": "Max Mana",
+  "immersive-aelements.attribute.name.generic.spell_cast_speed": "Spell Cast Speed",
+
+
+  "item.immersive-aelements.basic_staff":"Basic Staff",
+}
