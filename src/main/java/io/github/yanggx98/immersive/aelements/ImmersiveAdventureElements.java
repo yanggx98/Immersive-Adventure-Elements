@@ -1,11 +1,11 @@
 package io.github.yanggx98.immersive.aelements;
 
-import io.github.yanggx98.immersive.aelements.item.IAEItems;
+import com.google.common.collect.Lists;
+import io.github.yanggx98.immersive.aelements.gemslot.GemSlotItems;
+import io.github.yanggx98.immersive.aelements.gemslot.GemSlotModule;
 import io.github.yanggx98.kaleido.attribute.api.ILivingEntityAttributeAddition;
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -14,28 +14,34 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
 import java.util.function.Supplier;
-
-import static io.github.yanggx98.immersive.aelements.attribute.IAEAttributes.MAX_MANA;
-import static io.github.yanggx98.immersive.aelements.attribute.IAEAttributes.SPELL_DAMAGE;
 
 public class ImmersiveAdventureElements implements ModInitializer {
     public static final String MOD_ID = "immersive-aelements";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
+    private static final List<IAEModule> modules = Lists.newArrayList(new GemSlotModule());
     @Override
     public void onInitialize() {
         Registry.register(Registries.ITEM_GROUP, identifier("immersive-aelements_group"), FabricItemGroup.builder()
                 .entries((displayContext, entries) -> {
-                    entries.add(IAEItems.BASIC_STAFF);
+                    entries.add(GemSlotItems.ROUND_GEM_EMBED_TEMPLATE);
+                    entries.add(GemSlotItems.TRIANGLE_GEM_EMBED_TEMPLATE);
+                    entries.add(GemSlotItems.SQUARE_GEM_EMBED_TEMPLATE);
+                    entries.add(GemSlotItems.CRITICAL_DAMAGE_GEM_LEVEL_1);
                 })
-                .icon(() -> IAEItems.BASIC_STAFF.getDefaultStack())
-                .displayName(Text.translatable(identifier("display.name").toTranslationKey()))
+                .displayName(Text.translatable(identifier("display.name").toTranslationKey())).icon(new Supplier<ItemStack>() {
+                    @Override
+                    public ItemStack get() {
+                        return GemSlotItems.ROUND_GEM_EMBED_TEMPLATE.getDefaultStack();
+                    }
+                })
                 .build());
         ILivingEntityAttributeAddition.EVENT.register(builder -> {
-            builder.add(SPELL_DAMAGE).add(MAX_MANA);
+
         });
-        IAEItems.onInitialize();
+        modules.forEach(IAEModule::onInitialize);
+
     }
 
     public static Identifier identifier(String id) {

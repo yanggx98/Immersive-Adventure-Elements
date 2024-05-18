@@ -1,10 +1,7 @@
 {
   "immersive-aelements.display.name":"沉浸式：冒险元素",
-
-  "immersive-aelements.attribute.name.generic.spell_damage": "法术伤害",
-  "immersive-aelements.attribute.name.generic.max_mana": "最大法力值",
-  "immersive-aelements.attribute.name.generic.spell_cast_speed": "施法速度",
-
-
-  "item.immersive-aelements.basic_staff":"基础法杖"
+  "embed.immersive-aelements.gem_embed":"Gem Embed",
+  "item.immersive-aelements.gem_embed_template.gem_embed.applies_to":"Equipment",
+  "immersive-aelements.name.embedded":"已镶嵌:",
+  "immersive-aelements.gem_effect.critical_damage.level.1":"暴击宝石 Level 1"
 }

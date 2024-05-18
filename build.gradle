@@ -22,9 +22,6 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
-	flatDir {
-		dirs '/../Kaleido/build/devLibs'
-	}
 }
 
 loom {
@@ -51,8 +48,8 @@ dependencies {
 //	modImplementation "maven.modrinth:patchouli:1.20.1-84-fabric"
 	modLocalRuntime "maven.modrinth:jei:NsbSea5x"
 	modLocalRuntime "maven.modrinth:modmenu:lEkperf6"
-
-	modApi  name: 'kaleido-1.0.0-dev'
+	modLocalRuntime "maven.modrinth:immersive-tooltip:1.0.1"
+	modImplementation "maven.modrinth:kaleido:1.0.1"
 }
 
 processResources {
