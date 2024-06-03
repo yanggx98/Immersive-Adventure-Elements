@@ -48,8 +48,8 @@ dependencies {
 //	modImplementation "maven.modrinth:patchouli:1.20.1-84-fabric"
 	modLocalRuntime "maven.modrinth:jei:NsbSea5x"
 	modLocalRuntime "maven.modrinth:modmenu:lEkperf6"
-	modLocalRuntime "maven.modrinth:immersive-tooltip:1.0.1"
-	modImplementation "maven.modrinth:kaleido:1.0.1"
+	modLocalRuntime "maven.modrinth:immersive-tooltip:1.20.1-1.2.0"
+	modImplementation "maven.modrinth:kaleido:1.20.1-1.1.3"
 }
 
 processResources {

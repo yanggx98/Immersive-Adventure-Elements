@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "immersive-aelements:item/octagon_gem_embed_template"
+  }
+}

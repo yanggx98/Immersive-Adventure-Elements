@@ -25,15 +25,17 @@ public class ImmersiveAdventureElements implements ModInitializer {
     public void onInitialize() {
         Registry.register(Registries.ITEM_GROUP, identifier("immersive-aelements_group"), FabricItemGroup.builder()
                 .entries((displayContext, entries) -> {
+                    entries.add(GemSlotItems.EMPTY_GEM_EMBED_TEMPLATE);
                     entries.add(GemSlotItems.ROUND_GEM_EMBED_TEMPLATE);
                     entries.add(GemSlotItems.TRIANGLE_GEM_EMBED_TEMPLATE);
                     entries.add(GemSlotItems.SQUARE_GEM_EMBED_TEMPLATE);
+                    entries.add(GemSlotItems.OCTAGON_GEM_EMBED_TEMPLATE);
                     entries.add(GemSlotItems.CRITICAL_DAMAGE_GEM_LEVEL_1);
                 })
                 .displayName(Text.translatable(identifier("display.name").toTranslationKey())).icon(new Supplier<ItemStack>() {
                     @Override
                     public ItemStack get() {
-                        return GemSlotItems.ROUND_GEM_EMBED_TEMPLATE.getDefaultStack();
+                        return GemSlotItems.EMPTY_GEM_EMBED_TEMPLATE.getDefaultStack();
                     }
                 })
                 .build());
