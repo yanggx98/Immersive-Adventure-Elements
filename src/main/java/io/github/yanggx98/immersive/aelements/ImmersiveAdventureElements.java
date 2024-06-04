@@ -31,13 +31,16 @@ public class ImmersiveAdventureElements implements ModInitializer {
                     entries.add(GemSlotItems.SQUARE_GEM_EMBED_TEMPLATE);
                     entries.add(GemSlotItems.OCTAGON_GEM_EMBED_TEMPLATE);
                     entries.add(GemSlotItems.CRITICAL_DAMAGE_GEM_LEVEL_1);
+                    entries.add(GemSlotItems.CRITICAL_DAMAGE_GEM_LEVEL_2);
+                    entries.add(GemSlotItems.CRITICAL_DAMAGE_GEM_LEVEL_3);
+                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_LEVEL_1);
+                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_LEVEL_2);
+                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_LEVEL_3);
+                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_LEVEL_1);
+                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_LEVEL_2);
+                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_LEVEL_3);
                 })
-                .displayName(Text.translatable(identifier("display.name").toTranslationKey())).icon(new Supplier<ItemStack>() {
-                    @Override
-                    public ItemStack get() {
-                        return GemSlotItems.EMPTY_GEM_EMBED_TEMPLATE.getDefaultStack();
-                    }
-                })
+                .displayName(Text.translatable(identifier("display.name").toTranslationKey())).icon(() -> GemSlotItems.EMPTY_GEM_EMBED_TEMPLATE.getDefaultStack())
                 .build());
         ILivingEntityAttributeAddition.EVENT.register(builder -> {
 

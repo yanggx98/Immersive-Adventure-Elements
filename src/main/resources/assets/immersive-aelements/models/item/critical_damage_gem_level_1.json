@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "immersive-aelements:item/critical_damage_gem_level_1"
+  }
+}

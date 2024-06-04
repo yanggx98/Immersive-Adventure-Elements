@@ -1,7 +1,22 @@
 {
   "immersive-aelements.display.name":"Immersive Adventure Elements",
+  "item.immersive-aelements.critical_damage_gem_level_1":"Critical Damage Gem Level 1",
+  "item.immersive-aelements.critical_damage_gem_level_2":"Critical Damage Gem Level 2",
+  "item.immersive-aelements.critical_damage_gem_level_3":"Critical Damage Gem Level 3",
+  "item.immersive-aelements.extra_damage_gem_level_1":"Extra Damage Gem Level 1",
+  "item.immersive-aelements.extra_damage_gem_level_2":"Extra Damage Gem Level 2",
+  "item.immersive-aelements.extra_damage_gem_level_3":"Extra Damage Gem Level 3",
+  "item.immersive-aelements.health_uptake_gem_level_1":"Health Uptake Gem Level 1",
+  "item.immersive-aelements.health_uptake_gem_level_2":"Health Uptake Gem Level 2",
+  "item.immersive-aelements.health_uptake_gem_level_3":"Health Uptake Gem Level 3",
+
+
+
+
   "embed.immersive-aelements.gem_embed":"Gem Embed",
   "item.immersive-aelements.gem_embed_template.gem_embed.applies_to":"Equipment",
   "immersive-aelements.name.embedded":"Embedded:",
-  "immersive-aelements.gem_effect.critical_damage.level.1":"Critical Damage Gem Level 1"
+  "immersive-aelements.gem_effect.critical_damage_level_1":"Critical Damage Level 1",
+  "immersive-aelements.gem_effect.critical_damage_level_2":"Critical Damage Level 2",
+  "immersive-aelements.gem_effect.critical_damage_level_3":"Critical Damage Level 3"
 }
