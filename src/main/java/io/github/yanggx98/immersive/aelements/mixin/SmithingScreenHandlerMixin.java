@@ -113,8 +113,11 @@ public abstract class SmithingScreenHandlerMixin extends ForgingScreenHandler {
             IExtraSmithingRecipesProvider provider = ExtraSmithingRecipesHelper.get(smithingTemplateItem);
             additionItemList = provider.getAdditionList(templateStack);
         }
+
         for (Item item : additionItemList) {
-            return compareItem(stack.getItem(), item);
+            if(compareItem(stack.getItem(), item)){
+                return true;
+            }
         }
         return false;
     }

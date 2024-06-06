@@ -1,6 +1,7 @@
 package io.github.yanggx98.immersive.aelements;
 
 import com.google.common.collect.Lists;
+import io.github.yanggx98.immersive.aelements.attribute.AttributeModule;
 import io.github.yanggx98.immersive.aelements.gemslot.GemSlotItems;
 import io.github.yanggx98.immersive.aelements.gemslot.GemSlotModule;
 import io.github.yanggx98.kaleido.attribute.api.ILivingEntityAttributeAddition;
@@ -20,7 +21,7 @@ import java.util.function.Supplier;
 public class ImmersiveAdventureElements implements ModInitializer {
     public static final String MOD_ID = "immersive-aelements";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    private static final List<IAEModule> modules = Lists.newArrayList(new GemSlotModule());
+    private static final List<IAEModule> modules = Lists.newArrayList(new AttributeModule(),new GemSlotModule());
     @Override
     public void onInitialize() {
         Registry.register(Registries.ITEM_GROUP, identifier("immersive-aelements_group"), FabricItemGroup.builder()
