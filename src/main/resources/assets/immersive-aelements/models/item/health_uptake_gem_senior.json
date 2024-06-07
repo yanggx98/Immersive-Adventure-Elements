@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "immersive-aelements:item/health_uptake_gem_senior"
+  }
+}

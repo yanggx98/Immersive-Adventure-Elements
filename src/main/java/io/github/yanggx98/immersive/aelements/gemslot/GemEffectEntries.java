@@ -7,31 +7,21 @@ import static io.github.yanggx98.immersive.aelements.ImmersiveAdventureElements.
 
 public class GemEffectEntries {
     static final Map<String, GemEffectEntry> GEM_EFFECT_ENTRY_MAP = new HashMap<>();
-    public static final GemEffectEntry GEM_EFFECT_ENTRY_CRITICAL_DAMAGE_LEVEL_1 = new GemEffectEntry(identifier("gem_effect.critical_damage_level_1"), GemEffectEntry.LEVEL.LEVEL_1);
-    public static final GemEffectEntry GEM_EFFECT_ENTRY_CRITICAL_DAMAGE_LEVEL_2 = new GemEffectEntry(identifier("gem_effect.critical_damage_level_2"), GemEffectEntry.LEVEL.LEVEL_2);
-    public static final GemEffectEntry GEM_EFFECT_ENTRY_CRITICAL_DAMAGE_LEVEL_3 = new GemEffectEntry(identifier("gem_effect.critical_damage_level_3"), GemEffectEntry.LEVEL.LEVEL_3);
+    public static final GemEffectEntry GEM_EFFECT_ENTRY_CRITICAL_DAMAGE;
+    public static final GemEffectEntry GEM_EFFECT_ENTRY_HEALTH_UPTAKE;
+    public static final GemEffectEntry GEM_EFFECT_ENTRY_EXTRA_DAMAGE;
+    public static final GemEffectEntry GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION;
 
-    public static final GemEffectEntry GEM_EFFECT_ENTRY_HEALTH_UPTAKE_LEVEL_1 = new HealthUptakeGemEffectEntry(identifier("gem_effect.health_uptake_level_1"), GemEffectEntry.LEVEL.LEVEL_1);
-    public static final GemEffectEntry GEM_EFFECT_ENTRY_HEALTH_UPTAKE_LEVEL_2 = new HealthUptakeGemEffectEntry(identifier("gem_effect.health_uptake_level_2"), GemEffectEntry.LEVEL.LEVEL_2);
-    public static final GemEffectEntry GEM_EFFECT_ENTRY_HEALTH_UPTAKE_LEVEL_3 = new HealthUptakeGemEffectEntry(identifier("gem_effect.health_uptake_level_3"), GemEffectEntry.LEVEL.LEVEL_3);
+    static {
+        GEM_EFFECT_ENTRY_CRITICAL_DAMAGE = register(new GemEffectEntry(identifier("gem_effect.critical_damage")));
+        GEM_EFFECT_ENTRY_HEALTH_UPTAKE = register(new HealthUptakeGemEffectEntry(identifier("gem_effect.health_uptake")));
+        GEM_EFFECT_ENTRY_EXTRA_DAMAGE = register(new ExtraDamageGemEffectEntry(identifier("gem_effect.extra_damage")));
 
-    public static final GemEffectEntry GEM_EFFECT_ENTRY_EXTRA_DAMAGE_LEVEL_1 = new ExtraDamageGemEffectEntry(identifier("gem_effect.extra_damage_level_1"), GemEffectEntry.LEVEL.LEVEL_1);
-    public static final GemEffectEntry GEM_EFFECT_ENTRY_EXTRA_DAMAGE_LEVEL_2 = new ExtraDamageGemEffectEntry(identifier("gem_effect.extra_damage_level_2"), GemEffectEntry.LEVEL.LEVEL_2);
-    public static final GemEffectEntry GEM_EFFECT_ENTRY_EXTRA_DAMAGE_LEVEL_3 = new ExtraDamageGemEffectEntry(identifier("gem_effect.extra_damage_level_3"), GemEffectEntry.LEVEL.LEVEL_3);
-
-    public static void onInitialize() {
-        register(GEM_EFFECT_ENTRY_CRITICAL_DAMAGE_LEVEL_1.getTranslateKey(), GEM_EFFECT_ENTRY_CRITICAL_DAMAGE_LEVEL_1);
-        register(GEM_EFFECT_ENTRY_CRITICAL_DAMAGE_LEVEL_2.getTranslateKey(), GEM_EFFECT_ENTRY_CRITICAL_DAMAGE_LEVEL_2);
-        register(GEM_EFFECT_ENTRY_CRITICAL_DAMAGE_LEVEL_3.getTranslateKey(), GEM_EFFECT_ENTRY_CRITICAL_DAMAGE_LEVEL_3);
-        register(GEM_EFFECT_ENTRY_HEALTH_UPTAKE_LEVEL_1.getTranslateKey(), GEM_EFFECT_ENTRY_HEALTH_UPTAKE_LEVEL_1);
-        register(GEM_EFFECT_ENTRY_HEALTH_UPTAKE_LEVEL_2.getTranslateKey(), GEM_EFFECT_ENTRY_HEALTH_UPTAKE_LEVEL_2);
-        register(GEM_EFFECT_ENTRY_HEALTH_UPTAKE_LEVEL_3.getTranslateKey(), GEM_EFFECT_ENTRY_HEALTH_UPTAKE_LEVEL_3);
-        register(GEM_EFFECT_ENTRY_EXTRA_DAMAGE_LEVEL_1.getTranslateKey(), GEM_EFFECT_ENTRY_EXTRA_DAMAGE_LEVEL_1);
-        register(GEM_EFFECT_ENTRY_EXTRA_DAMAGE_LEVEL_2.getTranslateKey(), GEM_EFFECT_ENTRY_EXTRA_DAMAGE_LEVEL_2);
-        register(GEM_EFFECT_ENTRY_EXTRA_DAMAGE_LEVEL_3.getTranslateKey(), GEM_EFFECT_ENTRY_EXTRA_DAMAGE_LEVEL_3);
+        GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION = register(new GemEffectEntry(identifier("gem_effect.damage_absorption")));
     }
 
-    public static void register(String id, GemEffectEntry entry) {
-        GEM_EFFECT_ENTRY_MAP.put(id, entry);
+    private static GemEffectEntry register(GemEffectEntry entry) {
+        GEM_EFFECT_ENTRY_MAP.put(entry.getTranslateKey(), entry);
+        return entry;
     }
 }

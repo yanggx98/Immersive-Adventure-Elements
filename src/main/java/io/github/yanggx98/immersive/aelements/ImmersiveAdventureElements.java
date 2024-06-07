@@ -21,7 +21,8 @@ import java.util.function.Supplier;
 public class ImmersiveAdventureElements implements ModInitializer {
     public static final String MOD_ID = "immersive-aelements";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    private static final List<IAEModule> modules = Lists.newArrayList(new AttributeModule(),new GemSlotModule());
+    private static final List<IAEModule> modules = Lists.newArrayList(new AttributeModule(), new GemSlotModule());
+
     @Override
     public void onInitialize() {
         Registry.register(Registries.ITEM_GROUP, identifier("immersive-aelements_group"), FabricItemGroup.builder()
@@ -31,15 +32,20 @@ public class ImmersiveAdventureElements implements ModInitializer {
                     entries.add(GemSlotItems.TRIANGLE_GEM_EMBED_TEMPLATE);
                     entries.add(GemSlotItems.SQUARE_GEM_EMBED_TEMPLATE);
                     entries.add(GemSlotItems.OCTAGON_GEM_EMBED_TEMPLATE);
-                    entries.add(GemSlotItems.CRITICAL_DAMAGE_GEM_LEVEL_1);
-                    entries.add(GemSlotItems.CRITICAL_DAMAGE_GEM_LEVEL_2);
-                    entries.add(GemSlotItems.CRITICAL_DAMAGE_GEM_LEVEL_3);
-                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_LEVEL_1);
-                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_LEVEL_2);
-                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_LEVEL_3);
-                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_LEVEL_1);
-                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_LEVEL_2);
-                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_LEVEL_3);
+                    entries.add(GemSlotItems.EMPTY_TRIANGLE_GEM);
+                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_COMMON);
+                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_SENIOR);
+                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_RARE);
+                    entries.add(GemSlotItems.EXTRA_DAMAGE_GEM_ARTIFACT);
+                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_COMMON);
+                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_SENIOR);
+                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_RARE);
+                    entries.add(GemSlotItems.HEALTH_UPTAKE_GEM_ARTIFACT);
+                    entries.add(GemSlotItems.DAMAGE_ABSORPTION_GEM_COMMON);
+                    entries.add(GemSlotItems.DAMAGE_ABSORPTION_GEM_SENIOR);
+                    entries.add(GemSlotItems.DAMAGE_ABSORPTION_GEM_RARE);
+                    entries.add(GemSlotItems.DAMAGE_ABSORPTION_GEM_ARTIFACT);
+
                 })
                 .displayName(Text.translatable(identifier("display.name").toTranslationKey())).icon(() -> GemSlotItems.EMPTY_GEM_EMBED_TEMPLATE.getDefaultStack())
                 .build());

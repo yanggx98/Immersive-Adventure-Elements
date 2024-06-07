@@ -3,5 +3,7 @@
   "embed.immersive-aelements.gem_embed":"Gem Embed",
   "item.immersive-aelements.gem_embed_template.gem_embed.applies_to":"Equipment",
   "immersive-aelements.name.embedded":"已镶嵌:",
-  "immersive-aelements.gem_effect.critical_damage.level.1":"暴击宝石 Level 1"
+  "immersive-aelements.gem_effect.critical_damage.desc":"暴击伤害增加 %d%%",
+  "immersive-aelements.gem_effect.extra_damage.desc":"攻击时额外附加所造成伤害的 %d%% ",
+  "immersive-aelements.gem_effect.health_uptake.desc":"攻击时回复附加所造成伤害的 %d%% 生命值"
 }

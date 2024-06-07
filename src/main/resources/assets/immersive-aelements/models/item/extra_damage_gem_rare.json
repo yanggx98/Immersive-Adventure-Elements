@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "immersive-aelements:item/extra_damage_gem_rare"
+  }
+}

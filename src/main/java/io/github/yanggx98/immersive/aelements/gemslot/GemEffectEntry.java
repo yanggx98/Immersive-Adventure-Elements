@@ -1,31 +1,25 @@
 package io.github.yanggx98.immersive.aelements.gemslot;
 
+import io.github.yanggx98.immersive.aelements.gemslot.item.GemItem;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import static io.github.yanggx98.immersive.aelements.ImmersiveAdventureElements.identifier;
 
 public class GemEffectEntry {
 
-    private final Identifier identifier;
-    private final LEVEL level;
+    protected final Identifier identifier;
 
-    public GemEffectEntry(Identifier identifier,LEVEL level){
+    public GemEffectEntry(Identifier identifier) {
         this.identifier = identifier;
-        this.level = level;
     }
 
 
-    public String getTranslateKey(){
+    public String getTranslateKey() {
         return identifier.toTranslationKey();
     }
 
-    public LEVEL getLevel() {
-        return level;
-    }
-
-    public enum LEVEL{
-        LEVEL_1,
-        LEVEL_2,
-        LEVEL_3,
-        LEVEL_4,
-        LEVEL_5
+    public Text getDescText(GemItem.Level level) {
+        return Text.translatable(identifier.withSuffixedPath(".desc").toTranslationKey());
     }
 }
