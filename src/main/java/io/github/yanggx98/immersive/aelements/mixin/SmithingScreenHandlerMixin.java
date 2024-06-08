@@ -36,6 +36,14 @@ public abstract class SmithingScreenHandlerMixin extends ForgingScreenHandler {
         super(type, syncId, playerInventory, context);
     }
 
+    @Inject(method = "isValidIngredient",at = @At("HEAD"),cancellable = true)
+    private void injectIsValidIngredient(ItemStack stack, CallbackInfoReturnable<Boolean> cir){
+        if(getExtraTemplateItem(stack) || getExtraBaseItem(stack) || getExtraAdditionItem(stack)){
+            cir.setReturnValue(true);
+            cir.cancel();
+        }
+    }
+
     @Shadow
     public abstract int getSlotFor(ItemStack stack);
 

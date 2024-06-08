@@ -2,6 +2,22 @@
   "immersive-aelements.display.name":"Immersive Adventure Elements",
   "embed.immersive-aelements.gem_embed":"Gem Embed",
   "item.immersive-aelements.gem_embed_template.gem_embed.applies_to":"Equipment",
+  "item.immersive-aelements.empty_triangle_gem": "Empty Triangle Gem",
+  "item.immersive-aelements.extra_damage_gem_common": "Common Extra Damage Gem",
+  "item.immersive-aelements.extra_damage_gem_senior": "Senior Extra Damage Gem",
+  "item.immersive-aelements.extra_damage_gem_rare": "Rare Extra Damage Gem",
+  "item.immersive-aelements.extra_damage_gem_artifact": "Artifact Extra Damage Gem",
+
+  "item.immersive-aelements.health_uptake_gem_common": "Common Health Uptake Gem",
+  "item.immersive-aelements.health_uptake_gem_senior": "Senior Health Uptake Gem",
+  "item.immersive-aelements.health_uptake_gem_rare": "Rare Health Uptake Gem",
+  "item.immersive-aelements.health_uptake_gem_artifact": "Artifact Health Uptake Gem",
+
+  "item.immersive-aelements.damage_absorption_gem_common": "Common Damage Absorption Gem",
+  "item.immersive-aelements.damage_absorption_gem_senior": "Senior Damage Absorption Gem",
+  "item.immersive-aelements.damage_absorption_gem_rare": "Rare Damage Absorption Gem",
+  "item.immersive-aelements.damage_absorption_gem_artifact": "Artifact Damage Absorption Gem",
+
   "immersive-aelements.name.embedded":"Embedded:",
   "immersive-aelements.gem_effect.critical_damage.desc":"Critical damage increased: %d%%",
   "immersive-aelements.gem_effect.extra_damage.desc":"Adds damage when attacking: %d%%",
