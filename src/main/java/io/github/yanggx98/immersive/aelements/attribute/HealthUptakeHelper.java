@@ -10,12 +10,12 @@ import java.util.List;
 public class HealthUptakeHelper {
     private static List<ExtraDamageProvider> providers = new ArrayList<>();
 
-    public static int uptake(PlayerEntity player, Entity entity, DamageSource source, float amount) {
+    public static float uptake(PlayerEntity player, Entity entity, DamageSource source, float amount) {
         float percent = 0;
         for (ExtraDamageProvider provider : providers) {
             percent += provider.getAmount(player, entity, source, amount);
         }
-        return Math.round(percent * amount);
+        return percent * amount;
     }
 
     public static void registerAttributes(ExtraDamageProvider provider) {

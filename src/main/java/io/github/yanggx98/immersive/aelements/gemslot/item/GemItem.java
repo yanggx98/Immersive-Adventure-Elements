@@ -20,11 +20,13 @@ import java.util.Optional;
 public class GemItem extends Item {
     private final GemEffectEntry effectEntry;
     private final Level level;
+    private final GemType type;
 
-    public GemItem(GemEffectEntry effectEntry, Level level) {
+    public GemItem(GemEffectEntry effectEntry, Level level, GemType type) {
         super(new Settings());
         this.effectEntry = effectEntry;
         this.level = level;
+        this.type = type;
     }
 
     public GemEffectEntry getGemEffectEntry() {
@@ -39,11 +41,11 @@ public class GemItem extends Item {
 
     @Override
     public Rarity getRarity(ItemStack stack) {
-        return switch (level){
+        return switch (level) {
             case LEVEL_1 -> Rarity.COMMON;
             case LEVEL_2 -> Rarity.UNCOMMON;
             case LEVEL_3 -> Rarity.RARE;
-            case LEVEL_4,LEVEL_5,LEVEL_6 -> Rarity.EPIC;
+            case LEVEL_4, LEVEL_5, LEVEL_6 -> Rarity.EPIC;
         };
     }
 
@@ -51,15 +53,20 @@ public class GemItem extends Item {
         return level;
     }
 
+    public GemType getGemType() {
+        return type;
+    }
 
     public enum Level {
         LEVEL_1(1), LEVEL_2(2), LEVEL_3(3), LEVEL_4(4), LEVEL_5(5), LEVEL_6(6);
-
         public final int value;
 
         Level(int value) {
             this.value = value;
         }
+    }
 
+    public enum GemType {
+        TRIANGLE, ROUND, SQUARE, OCTAGON, CUSTOM
     }
 }

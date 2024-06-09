@@ -51,20 +51,20 @@ public class GemSlotItems {
 //        CRITICAL_DAMAGE_GEM_RARE = register("critical_damage_gem_rare", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_CRITICAL_DAMAGE, ExtraRarity.RARE));
 //        CRITICAL_DAMAGE_GEM_ARTIFACT = register("critical_damage_gem_artifact", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_CRITICAL_DAMAGE, ExtraRarity.ARTIFACT));
 
-        HEALTH_UPTAKE_GEM_COMMON = register("health_uptake_gem_common", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_HEALTH_UPTAKE, GemItem.Level.LEVEL_1));
-        HEALTH_UPTAKE_GEM_SENIOR = register("health_uptake_gem_senior", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_HEALTH_UPTAKE, GemItem.Level.LEVEL_2));
-        HEALTH_UPTAKE_GEM_RARE = register("health_uptake_gem_rare", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_HEALTH_UPTAKE, GemItem.Level.LEVEL_3));
-        HEALTH_UPTAKE_GEM_ARTIFACT = register("health_uptake_gem_artifact", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_HEALTH_UPTAKE, GemItem.Level.LEVEL_4));
+        HEALTH_UPTAKE_GEM_COMMON = register("health_uptake_gem_common", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_HEALTH_UPTAKE, GemItem.Level.LEVEL_1, GemItem.GemType.TRIANGLE));
+        HEALTH_UPTAKE_GEM_SENIOR = register("health_uptake_gem_senior", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_HEALTH_UPTAKE, GemItem.Level.LEVEL_2, GemItem.GemType.TRIANGLE));
+        HEALTH_UPTAKE_GEM_RARE = register("health_uptake_gem_rare", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_HEALTH_UPTAKE, GemItem.Level.LEVEL_3, GemItem.GemType.TRIANGLE));
+        HEALTH_UPTAKE_GEM_ARTIFACT = register("health_uptake_gem_artifact", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_HEALTH_UPTAKE, GemItem.Level.LEVEL_4, GemItem.GemType.TRIANGLE));
 
-        EXTRA_DAMAGE_GEM_COMMON = register("extra_damage_gem_common", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_EXTRA_DAMAGE, GemItem.Level.LEVEL_1));
-        EXTRA_DAMAGE_GEM_SENIOR = register("extra_damage_gem_senior", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_EXTRA_DAMAGE, GemItem.Level.LEVEL_2));
-        EXTRA_DAMAGE_GEM_RARE = register("extra_damage_gem_rare", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_EXTRA_DAMAGE, GemItem.Level.LEVEL_3));
-        EXTRA_DAMAGE_GEM_ARTIFACT = register("extra_damage_gem_artifact", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_EXTRA_DAMAGE, GemItem.Level.LEVEL_4));
+        EXTRA_DAMAGE_GEM_COMMON = register("extra_damage_gem_common", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_EXTRA_DAMAGE, GemItem.Level.LEVEL_1, GemItem.GemType.TRIANGLE));
+        EXTRA_DAMAGE_GEM_SENIOR = register("extra_damage_gem_senior", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_EXTRA_DAMAGE, GemItem.Level.LEVEL_2, GemItem.GemType.TRIANGLE));
+        EXTRA_DAMAGE_GEM_RARE = register("extra_damage_gem_rare", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_EXTRA_DAMAGE, GemItem.Level.LEVEL_3, GemItem.GemType.TRIANGLE));
+        EXTRA_DAMAGE_GEM_ARTIFACT = register("extra_damage_gem_artifact", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_EXTRA_DAMAGE, GemItem.Level.LEVEL_4, GemItem.GemType.TRIANGLE));
 
-        DAMAGE_ABSORPTION_GEM_COMMON = register("damage_absorption_gem_common", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_1));
-        DAMAGE_ABSORPTION_GEM_SENIOR = register("damage_absorption_gem_senior", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_2));
-        DAMAGE_ABSORPTION_GEM_RARE = register("damage_absorption_gem_rare", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_3));
-        DAMAGE_ABSORPTION_GEM_ARTIFACT = register("damage_absorption_gem_artifact", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_4));
+        DAMAGE_ABSORPTION_GEM_COMMON = register("damage_absorption_gem_common", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_1, GemItem.GemType.SQUARE));
+        DAMAGE_ABSORPTION_GEM_SENIOR = register("damage_absorption_gem_senior", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_2, GemItem.GemType.SQUARE));
+        DAMAGE_ABSORPTION_GEM_RARE = register("damage_absorption_gem_rare", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_3, GemItem.GemType.SQUARE));
+        DAMAGE_ABSORPTION_GEM_ARTIFACT = register("damage_absorption_gem_artifact", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_4, GemItem.GemType.SQUARE));
     }
 
     private static Item register(String id, Item entry) {

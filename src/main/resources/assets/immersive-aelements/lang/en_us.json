@@ -19,8 +19,14 @@
   "item.immersive-aelements.damage_absorption_gem_artifact": "Artifact Damage Absorption Gem",
 
   "immersive-aelements.name.embedded":"Embedded:",
+  "immersive-aelements.gem_effect.critical_damage":"Critical damage increased Gem",
+  "immersive-aelements.gem_effect.extra_damage":"Extra Damage Gem",
+  "immersive-aelements.gem_effect.health_uptake":"Health Uptake Gem",
+  "immersive-aelements.gem_effect.damage_absorption":"Damage Absorption",
+
   "immersive-aelements.gem_effect.critical_damage.desc":"Critical damage increased: %d%%",
-  "immersive-aelements.gem_effect.extra_damage.desc":"Adds damage when attacking: %d%%",
-  "immersive-aelements.gem_effect.health_uptake.desc":"Recover Health when attacking: %d%%"
+  "immersive-aelements.gem_effect.extra_damage.desc":"Adds damage %d%% when attacked.",
+  "immersive-aelements.gem_effect.health_uptake.desc":"Recover Health %d%% when attacked.",
+  "immersive-aelements.gem_effect.damage_absorption.desc":"Damage absorption %d% when attacked."
 
 }

@@ -16,7 +16,7 @@ public abstract class PlayerEntityMixin {
 
     @Redirect(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))
     private boolean redirectDamage(Entity e, DamageSource source, float amount) {
-        amount = LivingEntityAPIs.BEFORE_ENTITY_DAMAGE_EVENT.invoker().beforeDamage((PlayerEntity) (Object)this,e, source, amount);
+        amount = LivingEntityAPIs.BEFORE_DAMAGE_EVENT.invoker().beforeDamage((PlayerEntity) (Object)this,e, source, amount);
         return e.damage(source, amount);
     }
 }

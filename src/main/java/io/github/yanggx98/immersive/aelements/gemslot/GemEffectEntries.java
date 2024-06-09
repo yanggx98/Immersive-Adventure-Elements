@@ -17,7 +17,7 @@ public class GemEffectEntries {
         GEM_EFFECT_ENTRY_HEALTH_UPTAKE = register(new HealthUptakeGemEffectEntry(identifier("gem_effect.health_uptake")));
         GEM_EFFECT_ENTRY_EXTRA_DAMAGE = register(new ExtraDamageGemEffectEntry(identifier("gem_effect.extra_damage")));
 
-        GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION = register(new GemEffectEntry(identifier("gem_effect.damage_absorption")));
+        GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION = register(new DamageAbsorptionGemEffectEntry(identifier("gem_effect.damage_absorption")));
     }
 
     private static GemEffectEntry register(GemEffectEntry entry) {

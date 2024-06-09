@@ -4,8 +4,8 @@ import io.github.yanggx98.immersive.aelements.gemslot.item.GemItem;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class ExtraDamageGemEffectEntry extends GemEffectEntry {
-    public ExtraDamageGemEffectEntry(Identifier identifier) {
+public class DamageAbsorptionGemEffectEntry extends GemEffectEntry {
+    public DamageAbsorptionGemEffectEntry(Identifier identifier) {
         super(identifier);
     }
 
@@ -16,12 +16,12 @@ public class ExtraDamageGemEffectEntry extends GemEffectEntry {
 
     public float getAmount(GemItem.Level level) {
         return switch (level) {
-            case LEVEL_1 -> 0.1F;
-            case LEVEL_2 -> 0.2F;
-            case LEVEL_3 -> 0.35F;
-            case LEVEL_4 -> 0.45F;
-            case LEVEL_5 -> 0.60F;
-            case LEVEL_6 -> 0.80F;
+            case LEVEL_1 -> 0.05F;
+            case LEVEL_2 -> 0.08F;
+            case LEVEL_3 -> 0.15F;
+            case LEVEL_4 -> 0.18F;
+            case LEVEL_5 -> 0.22F;
+            case LEVEL_6 -> 0.30F;
         };
     }
 }

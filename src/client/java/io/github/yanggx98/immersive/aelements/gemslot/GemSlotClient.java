@@ -34,9 +34,9 @@ public class GemSlotClient implements IAEClientModule {
                                 case LEVEL_5 -> Style.EMPTY.withFormatting(Formatting.GOLD);
                                 case LEVEL_6 -> Style.EMPTY.withFormatting(Formatting.RED);
                             };
-                            Text text = Text.empty().append(" ").append(Text.translatable(entry.getTranslateKey())).setStyle(style);
-                            style.withFormatting(Formatting.GRAY);
-                            Text descText = Text.empty().append(" ").append(entry.getDescText(entries.get(entry))).setStyle(style);
+                            Text text = Text.empty().append("⩺ ").append(Text.translatable(entry.getTranslateKey())).setStyle(style);
+                            Style descStyle = Style.EMPTY.withFormatting(Formatting.GRAY);
+                            Text descText = Text.empty().append("  ").append(entry.getDescText(entries.get(entry))).setStyle(descStyle);
                             lines.add(text);
                             lines.add(descText);
                         }

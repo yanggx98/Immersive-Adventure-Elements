@@ -19,6 +19,7 @@ import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -36,9 +37,9 @@ public abstract class SmithingScreenHandlerMixin extends ForgingScreenHandler {
         super(type, syncId, playerInventory, context);
     }
 
-    @Inject(method = "isValidIngredient",at = @At("HEAD"),cancellable = true)
-    private void injectIsValidIngredient(ItemStack stack, CallbackInfoReturnable<Boolean> cir){
-        if(getExtraTemplateItem(stack) || getExtraBaseItem(stack) || getExtraAdditionItem(stack)){
+    @Inject(method = "isValidIngredient", at = @At("HEAD"), cancellable = true)
+    private void injectIsValidIngredient(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
+        if (getExtraTemplateItem(stack) || getExtraBaseItem(stack) || getExtraAdditionItem(stack)) {
             cir.setReturnValue(true);
             cir.cancel();
         }
@@ -87,52 +88,38 @@ public abstract class SmithingScreenHandlerMixin extends ForgingScreenHandler {
 
     }
 
-    @Inject(method = "canTakeOutput",at=@At("HEAD"),cancellable = true)
-    private void injectCanTakeOutput(PlayerEntity player, boolean present, CallbackInfoReturnable<Boolean> cir){
-        if (this.output.getStack(0)!=ItemStack.EMPTY){
+    @Inject(method = "canTakeOutput", at = @At("HEAD"), cancellable = true)
+    private void injectCanTakeOutput(PlayerEntity player, boolean present, CallbackInfoReturnable<Boolean> cir) {
+        if (this.output.getStack(0) != ItemStack.EMPTY) {
             cir.setReturnValue(true);
             cir.cancel();
         }
     }
+
+    @Unique
     private boolean getExtraTemplateItem(ItemStack stack) {
-        for (SmithingTemplateItem smithingTemplateItem : ExtraSmithingRecipesHelper.getExtraSimthingTemplateList()) {
-            return compareItem(stack.getItem(), smithingTemplateItem);
+        if (stack.getItem() instanceof SmithingTemplateItem smithingTemplateItem) {
+            return ExtraSmithingRecipesHelper.hasSmithingTemplateItem(smithingTemplateItem);
         }
         return false;
     }
 
+    @Unique
     private boolean getExtraBaseItem(ItemStack stack) {
-        List<Item> baseItemList = Lists.newArrayList();
         ItemStack templateStack = this.input.getStack(0);
-        if (templateStack != null && templateStack.getItem() instanceof SmithingTemplateItem smithingTemplateItem) {
-            IExtraSmithingRecipesProvider provider = ExtraSmithingRecipesHelper.get(smithingTemplateItem);
-            baseItemList = provider.getBaseList(templateStack);
-            for (Item item : baseItemList) {
-                return compareItem(stack.getItem(), item);
-            }
+        if (templateStack != null && templateStack.getItem() instanceof SmithingTemplateItem templateItem) {
+            return ExtraSmithingRecipesHelper.get(templateItem).isSupportBaseItem(stack);
         }
         return false;
     }
 
+    @Unique
     private boolean getExtraAdditionItem(ItemStack stack) {
-        List<Item> additionItemList = Lists.newArrayList();
         ItemStack templateStack = this.input.getStack(0);
-        if (templateStack != null && templateStack.getItem() instanceof SmithingTemplateItem smithingTemplateItem) {
-            IExtraSmithingRecipesProvider provider = ExtraSmithingRecipesHelper.get(smithingTemplateItem);
-            additionItemList = provider.getAdditionList(templateStack);
-        }
-
-        for (Item item : additionItemList) {
-            if(compareItem(stack.getItem(), item)){
-                return true;
-            }
+        if (templateStack != null && templateStack.getItem() instanceof SmithingTemplateItem templateItem) {
+            return ExtraSmithingRecipesHelper.get(templateItem).isSupportAdditionItem(stack);
         }
         return false;
     }
-
-    private boolean compareItem(Item a, Item b) {
-        return a.getRegistryEntry().registryKey().getValue().toString().equals(b.getRegistryEntry().registryKey().getValue().toString());
-    }
-
 }
 
