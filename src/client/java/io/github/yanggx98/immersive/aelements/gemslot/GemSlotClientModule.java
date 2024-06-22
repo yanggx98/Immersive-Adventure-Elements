@@ -14,11 +14,10 @@ import java.util.Map;
 
 import static io.github.yanggx98.immersive.aelements.ImmersiveAdventureElements.identifier;
 
-public class GemSlotClient implements IAEClientModule {
+public class GemSlotClientModule implements IAEClientModule {
     @Override
     public void onClientModuleInitialize() {
         ItemTooltipCallback.EVENT.register(new ItemTooltipCallback() {
-
             @Override
             public void getTooltip(ItemStack stack, TooltipContext context, List<Text> lines) {
                 if (stack.getItem() instanceof IEmbeddable slottableItem) {

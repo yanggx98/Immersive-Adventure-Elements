@@ -17,8 +17,17 @@
   "item.immersive-aelements.damage_absorption_gem_senior": "Senior Damage Absorption Gem",
   "item.immersive-aelements.damage_absorption_gem_rare": "Rare Damage Absorption Gem",
   "item.immersive-aelements.damage_absorption_gem_artifact": "Artifact Damage Absorption Gem",
+  "item.immersive-aelements.damage_absorption_gem_legend": "Legend Damage Absorption Gem",
+  "item.immersive-aelements.damage_absorption_gem_epic": "Epic Damage Absorption Gem",
 
   "immersive-aelements.name.embedded":"Embedded:",
+  "immersive-aelements.name.empty_gem_slots":"Empty Gem Slot:",
+
+  "immersive-aelements.square_gem_slot.desc":"Empty Square Gem Slot",
+  "immersive-aelements.round_gem_slot.desc":"Empty Round Gem Slot",
+  "immersive-aelements.triangle_gem_slot.desc":"Empty Triangle Gem Slot",
+  "immersive-aelements.octagon_gem_slot.desc":"Empty Octagon Gem Slot",
+
   "immersive-aelements.gem_effect.critical_damage":"Critical damage increased Gem",
   "immersive-aelements.gem_effect.extra_damage":"Extra Damage Gem",
   "immersive-aelements.gem_effect.health_uptake":"Health Uptake Gem",
@@ -27,6 +36,15 @@
   "immersive-aelements.gem_effect.critical_damage.desc":"Critical damage increased: %d%%",
   "immersive-aelements.gem_effect.extra_damage.desc":"Adds damage %d%% when attacked.",
   "immersive-aelements.gem_effect.health_uptake.desc":"Recover Health %d%% when attacked.",
-  "immersive-aelements.gem_effect.damage_absorption.desc":"Damage absorption %d% when attacked."
+  "immersive-aelements.gem_effect.damage_absorption.desc":"Damage absorption %d%% when attacked.",
+
+
+  "immersive-aelements.translation.grade": "Equipment Grade: ",
+  "immersive-aelements.grade.rarity.common": "Common",
+  "immersive-aelements.grade.rarity.senior": "Senior",
+  "immersive-aelements.grade.rarity.rare": "Rare",
+  "immersive-aelements.grade.rarity.artifact": "Artifact",
+  "immersive-aelements.grade.rarity.legend": "Legend",
+  "immersive-aelements.grade.rarity.epic": "Epic"
 
 }

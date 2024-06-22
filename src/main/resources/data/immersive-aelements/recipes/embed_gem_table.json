@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AWA",
+    "WRW",
+    "AWA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "W": {
+      "item": "minecraft:crimson_planks"
+    },
+    "R": {
+      "item": "minecraft:smithing_table"
+    }
+  },
+  "result": {
+    "item": "immersive-aelements:embed_gem_table",
+    "count": 1
+  }
+}

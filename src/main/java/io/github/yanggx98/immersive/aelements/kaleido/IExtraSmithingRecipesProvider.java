@@ -1,9 +1,6 @@
-package io.github.yanggx98.immersive.aelements;
+package io.github.yanggx98.immersive.aelements.kaleido;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import java.util.List;
 
 public interface IExtraSmithingRecipesProvider {
     boolean isSupportBaseItem(ItemStack stack);

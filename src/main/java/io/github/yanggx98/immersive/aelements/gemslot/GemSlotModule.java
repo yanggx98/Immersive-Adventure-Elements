@@ -1,27 +1,26 @@
 package io.github.yanggx98.immersive.aelements.gemslot;
 
-import io.github.yanggx98.immersive.aelements.ExtraSmithingRecipesHelper;
+import io.github.yanggx98.immersive.aelements.gemslot.item.GemEmbedTemplateItem;
+import io.github.yanggx98.immersive.aelements.kaleido.ExtraAnvilRecipesHelper;
+import io.github.yanggx98.immersive.aelements.kaleido.ExtraSmithingRecipesHelper;
 import io.github.yanggx98.immersive.aelements.IAEModule;
-import io.github.yanggx98.immersive.aelements.IExtraSmithingRecipesProvider;
+import io.github.yanggx98.immersive.aelements.kaleido.IExtraSmithingRecipesProvider;
 import io.github.yanggx98.immersive.aelements.attribute.DamageAbsorption;
 import io.github.yanggx98.immersive.aelements.attribute.ExtraDamageHelper;
 import io.github.yanggx98.immersive.aelements.attribute.HealthUptakeHelper;
-import io.github.yanggx98.immersive.aelements.gemslot.item.GemEmbedTemplateItem;
 import io.github.yanggx98.immersive.aelements.gemslot.item.GemItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.SmithingTemplateItem;
+import net.minecraft.item.ToolItem;
+import net.minecraft.screen.Property;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.function.BiConsumer;
 
 import static io.github.yanggx98.immersive.aelements.gemslot.GemSlotItems.*;
 
@@ -29,11 +28,19 @@ public class GemSlotModule implements IAEModule {
 
     @Override
     public void onInitialize() {
+        GemSlotBlocks.onInitialize();
         GemSlotItems.onInitialize();
-
-        ExtraSmithingRecipesHelper.registerRecipes((SmithingTemplateItem) TRIANGLE_GEM_EMBED_TEMPLATE, (IExtraSmithingRecipesProvider) TRIANGLE_GEM_EMBED_TEMPLATE);
-        ExtraSmithingRecipesHelper.registerRecipes((SmithingTemplateItem) SQUARE_GEM_EMBED_TEMPLATE, (IExtraSmithingRecipesProvider) SQUARE_GEM_EMBED_TEMPLATE);
-
+//        ExtraSmithingRecipesHelper.registerRecipes((SmithingTemplateItem) TRIANGLE_GEM_EMBED_TEMPLATE, (IExtraSmithingRecipesProvider) TRIANGLE_GEM_EMBED_TEMPLATE);
+//        ExtraSmithingRecipesHelper.registerRecipes((SmithingTemplateItem) SQUARE_GEM_EMBED_TEMPLATE, (IExtraSmithingRecipesProvider) SQUARE_GEM_EMBED_TEMPLATE);
+        ExtraAnvilRecipesHelper.PROVIDER.register(new ExtraAnvilRecipesHelper.IExtraAnvilRecipeProvider() {
+            @Override
+            public ItemStack get(ItemStack stack, ItemStack stack2, Property levelCount) {
+                if (stack2.getItem() instanceof GemEmbedTemplateItem templateItem) {
+                    return templateItem.get(stack, stack2, levelCount);
+                }
+                return ItemStack.EMPTY;
+            }
+        });
         ExtraDamageHelper.registerAttributes(new ExtraDamageHelper.ExtraDamageProvider() {
             @Override
             public float getExtraDamage(PlayerEntity player, Entity entity, DamageSource source, float amount) {

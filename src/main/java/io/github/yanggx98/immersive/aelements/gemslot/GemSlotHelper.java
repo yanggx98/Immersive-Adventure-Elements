@@ -1,13 +1,15 @@
 package io.github.yanggx98.immersive.aelements.gemslot;
 
+import io.github.yanggx98.immersive.aelements.gemslot.item.GemEmbedTemplateItem;
 import io.github.yanggx98.immersive.aelements.gemslot.item.GemItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.*;
 
 import java.util.*;
 
 public class GemSlotHelper {
     private static final String NBT_GEM_SLOT_ID = "iae.slot.gem";
+    private static final String NBT_GEM_EMPTY_SLOT_ID = "iae.slot.empty";
 
     public static ItemStack embedGem(ItemStack stack, GemItem item) {
         ItemStack temp_stack = stack.copy();
@@ -37,6 +39,7 @@ public class GemSlotHelper {
         return gemEffectMap;
     }
 
+
     private static GemItem.Level getLevel(int value) {
         return switch (value) {
             case 2 -> GemItem.Level.LEVEL_2;
@@ -46,5 +49,43 @@ public class GemSlotHelper {
             case 6 -> GemItem.Level.LEVEL_6;
             default -> GemItem.Level.LEVEL_1;
         };
+    }
+
+    public static void openSlot(ItemStack stack, GemEmbedTemplateItem templateItem) {
+        GemItem.GemType gemType = templateItem.getGemSlotType();
+        if (stack.getItem() instanceof IEmbeddable embeddable) {
+            List<GemItem.GemType> slots = embeddable.immersive_Adventure_Elements$canOpenSlot(stack);
+            GemItem.GemType slotType = templateItem.getGemSlotType();
+            if (slots.contains(slotType)) ;
+            {
+                NbtCompound rootCompound = stack.getOrCreateNbt();
+                NbtList SlotNbtCompound = null;
+                if (rootCompound.contains(NBT_GEM_EMPTY_SLOT_ID)) {
+                    SlotNbtCompound = rootCompound.getList(NBT_GEM_EMPTY_SLOT_ID, NbtElement.INT_TYPE);
+                } else {
+                    SlotNbtCompound = new NbtList();
+                    rootCompound.put(NBT_GEM_EMPTY_SLOT_ID, SlotNbtCompound);
+                }
+                NbtInt nbtInt = NbtInt.of(gemType.value);
+                SlotNbtCompound.add(nbtInt);
+            }
+        }
+    }
+
+    public static List<GemItem.GemType> getEmptyGemSlotList(ItemStack stack) {
+        List<GemItem.GemType> slotList = new ArrayList<>();
+        NbtCompound rootCompound = stack.getOrCreateNbt();
+        HashMap<GemEffectEntry, GemItem.Level> gemEffectMap = new HashMap<>();
+        if (rootCompound.contains(NBT_GEM_EMPTY_SLOT_ID)) {
+            NbtList gemSlotNbtCompound = rootCompound.getList(NBT_GEM_EMPTY_SLOT_ID, NbtElement.INT_TYPE);
+            for (int i = 0; i < gemSlotNbtCompound.size(); i++) {
+                int enumValue = gemSlotNbtCompound.getInt(i);
+                GemItem.GemType type = GemItem.GemType.get(enumValue);
+                if (type != null) {
+                    slotList.add(type);
+                }
+            }
+        }
+        return slotList;
     }
 }

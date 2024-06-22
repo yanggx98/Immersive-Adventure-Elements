@@ -6,5 +6,13 @@
   "immersive-aelements.gem_effect.critical_damage.desc":"暴击伤害增加 %d%%",
   "immersive-aelements.gem_effect.extra_damage.desc":"攻击时额外附加所造成伤害的 %d%% ",
   "immersive-aelements.gem_effect.health_uptake.desc":"攻击时回复附加所造成伤害的 %d%% 生命值",
-  "immersive-aelements.gem_effect.damage_absorption.desc":"被攻击时，伤害吸收 %d%% "
+  "immersive-aelements.gem_effect.damage_absorption.desc":"被攻击时，伤害吸收 %d%% ",
+
+  "immersive-aelements.translation.grade": "装备品级：",
+  "immersive-aelements.grade.rarity.common": "普通",
+  "immersive-aelements.grade.rarity.senior": "高级",
+  "immersive-aelements.grade.rarity.rare": "稀有",
+  "immersive-aelements.grade.rarity.artifact": "神器",
+  "immersive-aelements.grade.rarity.legend": "传说",
+  "immersive-aelements.grade.rarity.epic": "史诗"
 }

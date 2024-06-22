@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "down": "immersive-aelements:block/embed_gem_table_bottom",
+    "east": "immersive-aelements:block/embed_gem_table_side",
+    "north": "immersive-aelements:block/embed_gem_table_front",
+    "particle": "immersive-aelements:block/embed_gem_table_front",
+    "south": "immersive-aelements:block/embed_gem_table_front",
+    "up": "immersive-aelements:block/embed_gem_table_top",
+    "west": "immersive-aelements:block/embed_gem_table_side"
+  }
+}

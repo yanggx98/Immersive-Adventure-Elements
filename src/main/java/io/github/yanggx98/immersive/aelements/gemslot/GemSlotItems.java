@@ -3,6 +3,7 @@ package io.github.yanggx98.immersive.aelements.gemslot;
 import io.github.yanggx98.immersive.aelements.gemslot.item.*;
 import io.github.yanggx98.immersive.aelements.rarity.ExtraRarity;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -37,13 +38,16 @@ public class GemSlotItems {
     public static Item DAMAGE_ABSORPTION_GEM_SENIOR;
     public static Item DAMAGE_ABSORPTION_GEM_RARE;
     public static Item DAMAGE_ABSORPTION_GEM_ARTIFACT;
+    public static Item DAMAGE_ABSORPTION_GEM_LEGEND;
+    public static Item DAMAGE_ABSORPTION_GEM_EPIC;
+    public static Item EMBED_GEM_TABLE;
 
     public static void onInitialize() {
         EMPTY_GEM_EMBED_TEMPLATE = register("empty_gem_embed_template", new Item(new FabricItemSettings()));
-        ROUND_GEM_EMBED_TEMPLATE = register("round_gem_embed_template", RoundGemEmbedTemplateItem.createRoundGemSlotTemplate());
-        TRIANGLE_GEM_EMBED_TEMPLATE = register("triangle_gem_embed_template", TriangleGemEmbedTemplateItem.createTriangleGemSlotTemplate());
-        SQUARE_GEM_EMBED_TEMPLATE = register("square_gem_embed_template", SquareGemEmbedTemplateItem.createSquareGemSlotTemplate());
-        OCTAGON_GEM_EMBED_TEMPLATE = register("octagon_gem_embed_template", OctagonGemEmbedTemplateItem.createOctagonGemSlotTemplate());
+        ROUND_GEM_EMBED_TEMPLATE = register("round_gem_embed_template", new RoundGemEmbedTemplateItem(new FabricItemSettings()));
+        TRIANGLE_GEM_EMBED_TEMPLATE = register("triangle_gem_embed_template", new TriangleGemEmbedTemplateItem(new FabricItemSettings()));
+        SQUARE_GEM_EMBED_TEMPLATE = register("square_gem_embed_template", new SquareGemEmbedTemplateItem(new FabricItemSettings()));
+        OCTAGON_GEM_EMBED_TEMPLATE = register("octagon_gem_embed_template", new OctagonGemEmbedTemplateItem(new FabricItemSettings()));
 
         EMPTY_TRIANGLE_GEM = register("empty_triangle_gem", new Item(new FabricItemSettings()));
 //        CRITICAL_DAMAGE_GEM_COMMON = register("critical_damage_gem_common", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_CRITICAL_DAMAGE, ExtraRarity.COMMON));
@@ -65,6 +69,9 @@ public class GemSlotItems {
         DAMAGE_ABSORPTION_GEM_SENIOR = register("damage_absorption_gem_senior", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_2, GemItem.GemType.SQUARE));
         DAMAGE_ABSORPTION_GEM_RARE = register("damage_absorption_gem_rare", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_3, GemItem.GemType.SQUARE));
         DAMAGE_ABSORPTION_GEM_ARTIFACT = register("damage_absorption_gem_artifact", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_4, GemItem.GemType.SQUARE));
+        DAMAGE_ABSORPTION_GEM_LEGEND = register("damage_absorption_gem_legend", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_5, GemItem.GemType.SQUARE));
+        DAMAGE_ABSORPTION_GEM_EPIC = register("damage_absorption_gem_epic", new GemItem(GemEffectEntries.GEM_EFFECT_ENTRY_DAMAGE_ABSORPTION, GemItem.Level.LEVEL_6, GemItem.GemType.SQUARE));
+        EMBED_GEM_TABLE = register("embed_gem_table", new BlockItem(GemSlotBlocks.EMBED_GEM_TABLE, new FabricItemSettings()));
     }
 
     private static Item register(String id, Item entry) {

@@ -2,12 +2,12 @@ package io.github.yanggx98.immersive.aelements;
 
 import com.google.common.collect.Lists;
 import io.github.yanggx98.immersive.aelements.attribute.AttributeModule;
+import io.github.yanggx98.immersive.aelements.gemslot.GemSlotBlocks;
 import io.github.yanggx98.immersive.aelements.gemslot.GemSlotItems;
 import io.github.yanggx98.immersive.aelements.gemslot.GemSlotModule;
 import io.github.yanggx98.kaleido.attribute.api.ILivingEntityAttributeAddition;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -15,8 +15,8 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Iterator;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ImmersiveAdventureElements implements ModInitializer {
     public static final String MOD_ID = "immersive-aelements";
@@ -45,7 +45,9 @@ public class ImmersiveAdventureElements implements ModInitializer {
                     entries.add(GemSlotItems.DAMAGE_ABSORPTION_GEM_SENIOR);
                     entries.add(GemSlotItems.DAMAGE_ABSORPTION_GEM_RARE);
                     entries.add(GemSlotItems.DAMAGE_ABSORPTION_GEM_ARTIFACT);
-
+                    entries.add(GemSlotItems.DAMAGE_ABSORPTION_GEM_LEGEND);
+                    entries.add(GemSlotItems.DAMAGE_ABSORPTION_GEM_EPIC);
+                    entries.add(GemSlotItems.EMBED_GEM_TABLE);
                 })
                 .displayName(Text.translatable(identifier("display.name").toTranslationKey())).icon(() -> GemSlotItems.EMPTY_GEM_EMBED_TEMPLATE.getDefaultStack())
                 .build());
@@ -56,7 +58,7 @@ public class ImmersiveAdventureElements implements ModInitializer {
 
     }
 
-    public static Identifier identifier(String id) {
-        return new Identifier(MOD_ID, id);
+    public static Identifier identifier(String path) {
+        return new Identifier(MOD_ID, path);
     }
 }

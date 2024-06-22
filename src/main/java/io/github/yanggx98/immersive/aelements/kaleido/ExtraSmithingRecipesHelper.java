@@ -1,11 +1,8 @@
-package io.github.yanggx98.immersive.aelements;
+package io.github.yanggx98.immersive.aelements.kaleido;
 
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.SmithingTemplateItem;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ExtraSmithingRecipesHelper {

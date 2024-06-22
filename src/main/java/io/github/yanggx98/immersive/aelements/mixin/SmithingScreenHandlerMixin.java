@@ -1,11 +1,9 @@
 package io.github.yanggx98.immersive.aelements.mixin;
 
-import com.google.common.collect.Lists;
-import io.github.yanggx98.immersive.aelements.ExtraSmithingRecipesHelper;
-import io.github.yanggx98.immersive.aelements.IExtraSmithingRecipesProvider;
+import io.github.yanggx98.immersive.aelements.kaleido.ExtraSmithingRecipesHelper;
+import io.github.yanggx98.immersive.aelements.kaleido.IExtraSmithingRecipesProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.recipe.SmithingRecipe;
