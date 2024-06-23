@@ -1,5 +1,6 @@
 package io.github.yanggx98.immersive.aelements.gemslot;
 
+import com.sun.jna.platform.win32.COM.util.Factory;
 import io.github.yanggx98.immersive.aelements.gemslot.item.GemItem;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -22,4 +23,5 @@ public class GemEffectEntry {
     public Text getDescText(GemItem.Level level) {
         return Text.translatable(identifier.withSuffixedPath(".desc").toTranslationKey());
     }
+
 }

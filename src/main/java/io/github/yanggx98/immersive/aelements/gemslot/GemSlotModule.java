@@ -1,10 +1,9 @@
 package io.github.yanggx98.immersive.aelements.gemslot;
 
 import io.github.yanggx98.immersive.aelements.gemslot.item.GemEmbedTemplateItem;
+import io.github.yanggx98.immersive.aelements.gemslot.screen.GemSlotScreenTypes;
 import io.github.yanggx98.immersive.aelements.kaleido.ExtraAnvilRecipesHelper;
-import io.github.yanggx98.immersive.aelements.kaleido.ExtraSmithingRecipesHelper;
 import io.github.yanggx98.immersive.aelements.IAEModule;
-import io.github.yanggx98.immersive.aelements.kaleido.IExtraSmithingRecipesProvider;
 import io.github.yanggx98.immersive.aelements.attribute.DamageAbsorption;
 import io.github.yanggx98.immersive.aelements.attribute.ExtraDamageHelper;
 import io.github.yanggx98.immersive.aelements.attribute.HealthUptakeHelper;
@@ -14,20 +13,17 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SmithingTemplateItem;
-import net.minecraft.item.ToolItem;
 import net.minecraft.screen.Property;
 
+import java.util.List;
 import java.util.Map;
-
-import static io.github.yanggx98.immersive.aelements.gemslot.GemSlotItems.*;
 
 public class GemSlotModule implements IAEModule {
 
     @Override
     public void onInitialize() {
+        GemSlotScreenTypes.onInitialize();
         GemSlotBlocks.onInitialize();
         GemSlotItems.onInitialize();
 //        ExtraSmithingRecipesHelper.registerRecipes((SmithingTemplateItem) TRIANGLE_GEM_EMBED_TEMPLATE, (IExtraSmithingRecipesProvider) TRIANGLE_GEM_EMBED_TEMPLATE);
@@ -47,10 +43,11 @@ public class GemSlotModule implements IAEModule {
                 ItemStack stack = player.getEquippedStack(EquipmentSlot.MAINHAND);
                 float total = 0;
                 if (stack.getItem() instanceof IEmbeddable embeddable) {
-                    Map<GemEffectEntry, GemItem.Level> gemSlotEntryMap = GemSlotHelper.getGemSlotEntryMap(stack);
-                    for (GemEffectEntry entry : gemSlotEntryMap.keySet()) {
+                    List<GemItem> gemItemList = GemSlotHelper.getGemItemList(stack);
+                    for (GemItem gemItem : gemItemList) {
+                        GemEffectEntry entry = gemItem.getGemEffectEntry();
+                        GemItem.Level level = gemItem.getLevel();
                         if (entry instanceof ExtraDamageGemEffectEntry extraDamageGemEffectEntry) {
-                            GemItem.Level level = gemSlotEntryMap.get(entry);
                             total += extraDamageGemEffectEntry.getAmount(level);
                         }
                     }
@@ -65,10 +62,11 @@ public class GemSlotModule implements IAEModule {
                 ItemStack stack = player.getEquippedStack(EquipmentSlot.MAINHAND);
                 float total = 0;
                 if (stack.getItem() instanceof IEmbeddable embeddable) {
-                    Map<GemEffectEntry, GemItem.Level> gemSlotEntryMap = GemSlotHelper.getGemSlotEntryMap(stack);
-                    for (GemEffectEntry entry : gemSlotEntryMap.keySet()) {
+                    List<GemItem> gemItemList = GemSlotHelper.getGemItemList(stack);
+                    for (GemItem gemItem : gemItemList) {
+                        GemEffectEntry entry = gemItem.getGemEffectEntry();
+                        GemItem.Level level = gemItem.getLevel();
                         if (entry instanceof HealthUptakeGemEffectEntry healthUptakeGemEffectEntry) {
-                            GemItem.Level level = gemSlotEntryMap.get(entry);
                             total += healthUptakeGemEffectEntry.getAmount(level);
                         }
                     }
@@ -84,10 +82,11 @@ public class GemSlotModule implements IAEModule {
                 ItemStack legsArmor = entity.getEquippedStack(EquipmentSlot.LEGS);
                 if (chestArmor != ItemStack.EMPTY) {
                     if (chestArmor.getItem() instanceof IEmbeddable embeddable) {
-                        Map<GemEffectEntry, GemItem.Level> gemSlotEntryMap = GemSlotHelper.getGemSlotEntryMap(chestArmor);
-                        for (GemEffectEntry entry : gemSlotEntryMap.keySet()) {
+                        List<GemItem> gemItemList = GemSlotHelper.getGemItemList(chestArmor);
+                        for (GemItem gemItem : gemItemList) {
+                            GemEffectEntry entry = gemItem.getGemEffectEntry();
+                            GemItem.Level level = gemItem.getLevel();
                             if (entry instanceof DamageAbsorptionGemEffectEntry damageAbsorptionGemEffectEntry) {
-                                GemItem.Level level = gemSlotEntryMap.get(entry);
                                 total += damageAbsorptionGemEffectEntry.getAmount(level);
                             }
                         }
@@ -96,10 +95,11 @@ public class GemSlotModule implements IAEModule {
 
                 if (legsArmor != ItemStack.EMPTY) {
                     if (legsArmor.getItem() instanceof IEmbeddable embeddable) {
-                        Map<GemEffectEntry, GemItem.Level> gemSlotEntryMap = GemSlotHelper.getGemSlotEntryMap(legsArmor);
-                        for (GemEffectEntry entry : gemSlotEntryMap.keySet()) {
+                        List<GemItem> gemItemList = GemSlotHelper.getGemItemList(legsArmor);
+                        for (GemItem gemItem : gemItemList) {
+                            GemEffectEntry entry = gemItem.getGemEffectEntry();
+                            GemItem.Level level = gemItem.getLevel();
                             if (entry instanceof DamageAbsorptionGemEffectEntry damageAbsorptionGemEffectEntry) {
-                                GemItem.Level level = gemSlotEntryMap.get(entry);
                                 total += damageAbsorptionGemEffectEntry.getAmount(level);
                             }
                         }

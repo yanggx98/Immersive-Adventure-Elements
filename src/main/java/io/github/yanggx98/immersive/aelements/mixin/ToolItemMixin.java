@@ -7,7 +7,6 @@ import io.github.yanggx98.immersive.aelements.gemslot.IEmbeddable;
 import io.github.yanggx98.immersive.aelements.gemslot.item.GemItem;
 import io.github.yanggx98.immersive.aelements.rarity.ExtraRarity;
 import io.github.yanggx98.immersive.aelements.rarity.ExtraRarityHelper;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolItem;
 import org.spongepowered.asm.mixin.Mixin;
@@ -39,8 +38,8 @@ public class ToolItemMixin implements IEmbeddable {
     }
 
     @Override
-    public Map<GemEffectEntry, GemItem.Level> immersive_Adventure_Elements$getGemEmbededList(ItemStack stack) {
-        return GemSlotHelper.getGemSlotEntryMap(stack);
+    public List<GemItem> immersive_Adventure_Elements$getGemEmbededList(ItemStack stack) {
+        return GemSlotHelper.getGemItemList(stack);
     }
 
     @Override

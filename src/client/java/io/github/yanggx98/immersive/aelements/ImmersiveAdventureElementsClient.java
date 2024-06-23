@@ -88,7 +88,7 @@ public class ImmersiveAdventureElementsClient implements ClientModInitializer {
             }
         });
         TooltipComponentAPI.EVENT.register((list, itemStack) -> {
-            int index = list.size();
+            int index = list.size() - 1;
             if (itemStack.getItem() instanceof IEmbeddable embeddable) {
                 List<GemItem.GemType> gemTypes = embeddable.immersive_Adventure_Elements$getEmptyGemSlotList(itemStack);
                 if (!gemTypes.isEmpty()) {
@@ -104,7 +104,7 @@ public class ImmersiveAdventureElementsClient implements ClientModInitializer {
                     Identifier desc = ImmersiveAdventureElements.identifier(gemType.name().toLowerCase() + "_gem_slot.desc");
                     list.add(index++, new EmptyGemTooltipComponent(texture,
                             Text.empty().append(Text.translatable(desc.toTranslationKey()))
-                                    .setStyle(Style.EMPTY.withFormatting(Formatting.GRAY))
+                                    .setStyle(Style.EMPTY.withFormatting(Formatting.BLUE))
                                     .asOrderedText()));
                 }
             }

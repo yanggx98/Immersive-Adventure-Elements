@@ -1,5 +1,7 @@
 package io.github.yanggx98.immersive.aelements.gemslot;
 
+import io.github.yanggx98.immersive.aelements.gemslot.item.GemItem;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,4 +26,5 @@ public class GemEffectEntries {
         GEM_EFFECT_ENTRY_MAP.put(entry.getTranslateKey(), entry);
         return entry;
     }
+
 }

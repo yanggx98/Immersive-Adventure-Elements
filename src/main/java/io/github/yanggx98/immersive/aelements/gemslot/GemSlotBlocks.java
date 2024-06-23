@@ -15,7 +15,7 @@ public class GemSlotBlocks{
     public static  Block EMBED_GEM_TABLE;
 
     public static void onInitialize() {
-        EMBED_GEM_TABLE = register("embed_gem_table", new EmbedGemTable(AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD).burnable()));
+        EMBED_GEM_TABLE = register("embed_gem_table", new EmbedGemTable(Block.Settings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD).burnable()));
     }
 
     private static Block register(String id, Block entry) {

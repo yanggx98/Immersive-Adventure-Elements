@@ -8,6 +8,6 @@ import java.util.Map;
 
 public interface IEmbeddable {
     List<GemItem.GemType> immersive_Adventure_Elements$canOpenSlot(ItemStack stack);
-    Map<GemEffectEntry, GemItem.Level> immersive_Adventure_Elements$getGemEmbededList(ItemStack stack);
+    List<GemItem> immersive_Adventure_Elements$getGemEmbededList(ItemStack stack);
     List<GemItem.GemType> immersive_Adventure_Elements$getEmptyGemSlotList(ItemStack stack);
 }

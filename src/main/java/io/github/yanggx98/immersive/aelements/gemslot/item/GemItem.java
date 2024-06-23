@@ -80,7 +80,7 @@ public class GemItem extends Item implements IExtraRarityItem {
     }
 
     public enum GemType {
-        TRIANGLE(1), ROUND(2), SQUARE(3), OCTAGON(4), CUSTOM(99);
+        TRIANGLE(1), ROUND(2), SQUARE(3), OCTAGON(4);
         public final int value;
 
         GemType(int value) {
