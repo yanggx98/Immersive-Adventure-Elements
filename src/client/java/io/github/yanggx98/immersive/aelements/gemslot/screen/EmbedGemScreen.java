@@ -8,6 +8,8 @@ import net.minecraft.client.gui.screen.ingame.ForgingScreen;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.recipe.StonecuttingRecipe;
+import net.minecraft.screen.StonecutterScreenHandler;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -56,9 +58,37 @@ public class EmbedGemScreen extends ForgingScreen<EmbedGemTableScreenHandler> {
                 case OCTAGON -> EMPTY_OCTAGON_SLOT;
             };
             this.templateSlotIcon.updateTexture(List.of(texture));
-        }else{
-            this.templateSlotIcon.updateTexture(List.of(EMPTY_TRIANGLE_SLOT,EMPTY_OCTAGON_SLOT,EMPTY_SQUARE_SLOT,EMPTY_ROUND_SLOT));
+        } else {
+            this.templateSlotIcon.updateTexture(List.of(EMPTY_TRIANGLE_SLOT, EMPTY_OCTAGON_SLOT, EMPTY_SQUARE_SLOT, EMPTY_ROUND_SLOT));
         }
+    }
+
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        super.render(context, mouseX, mouseY, delta);
+        this.drawMouseoverTooltip(context, mouseX, mouseY);
+    }
+
+    protected void drawMouseoverTooltip(DrawContext context, int x, int y) {
+        super.drawMouseoverTooltip(context, x, y);
+        if (this.canCraft) {
+            int i = this.x + 52;
+            int j = this.y + 14;
+            int k = this.scrollOffset + 12;
+            List<EmbedGemTableScreenHandler.EmbeddableItem> list = (this.handler).get();
+
+            for (int l = this.scrollOffset; l < k && l < (this.handler).getAvailableItemCount(); ++l) {
+                int m = l - this.scrollOffset;
+                int n = i + m % 4 * 16;
+                int o = j + m / 4 * 18 + 2;
+                if (x >= n && x < n + 16 && y >= o && y < o + 18) {
+                    EmbedGemTableScreenHandler.EmbeddableItem embeddableItem = list.get(l);
+                    if (embeddableItem instanceof EmbedGemTableScreenHandler.EmbeddableItem.GemEmbeddableItem gemEmbeddableItem) {
+                        context.drawItemTooltip(this.textRenderer, gemEmbeddableItem.item.getDefaultStack(), x, y);
+                    }
+                }
+            }
+        }
+
     }
 
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
